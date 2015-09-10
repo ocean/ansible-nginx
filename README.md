@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/weldpua2008/ansible-nginx.svg)](https://travis-ci.org/weldpua2008/ansible-nginx)
+[![Build Status](https://travis-ci.org/ocean/ansible-nginx.svg)](https://travis-ci.org/ocean/ansible-nginx)
 Role Name
 ========
 
