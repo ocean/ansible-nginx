@@ -10,7 +10,7 @@
   tags:
     - nginx
 
-- name: Ensure nginx is installed.
+- name: Ensure nginx is installed. 
   yum: pkg=nginx state=present
   #installed enablerepo=nginx
   tags:
