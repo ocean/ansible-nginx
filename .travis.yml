@@ -71,8 +71,11 @@ script:
 
  # Run tests on CentOs 6
 # - docker run --rm=true -v `pwd`:/ansible-nginx:rw centos:6 /bin/bash -c "/ansible-nginx/tests/test-on-rpm.sh $ANSIBLE_VERSION "
+ # Build a custom CentOS 7 container with systemd
+ - docker build -t ansible-nginx-testing/centos7:1 -f tests/Dockerfile-CentOS-7 .
  # Run tests on CentOs 7
- - docker run --privileged=true --rm=true -v `pwd`:/ansible-nginx:rw centos:7 /bin/bash -c "/ansible-nginx/tests/test-on-rpm.sh $ANSIBLE_VERSION nginx_use_service=False"
+# - docker run --privileged=true --rm=true -v `pwd`:/ansible-nginx:rw centos:7 /bin/bash -c "/ansible-nginx/tests/test-on-rpm.sh $ANSIBLE_VERSION nginx_use_service=False"
+ - docker run --privileged=true --rm=true -v `pwd`:/ansible-nginx:rw ansible-nginx-testing/centos7:1 /bin/bash -c "/ansible-nginx/tests/test-on-rpm.sh $ANSIBLE_VERSION nginx_use_service=False"
 
  # Run tests on fedora 22
 # - docker run --rm=true -v `pwd`:/ansible-nginx:rw fedora:22 /bin/bash -c "/ansible-nginx/tests/test-on-rpm.sh $ANSIBLE_SHORT_VERSION"
